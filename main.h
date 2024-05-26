@@ -27,7 +27,12 @@ typedef struct Coada Coada;
 
 void citire(FILE *, Echipa *);
 Echipa *deQueue(Coada *q);
-void enQueue ( Coada *q, Echipa *v);
+void enQueue (Coada *q, Echipa *v);
 Coada* createQueue();
 int isEmpty(Coada *);
 void citire_coada(Echipa *, Coada **);
+Graph* alocare();
+void meciuri(Coada *, Graph *,Coada *, Coada *, int *);
+void final(Coada *, char *, Graph*);
+void enQueue_q(Coada *, Coada *);
+void afisare_graph(char *, Graph *);
