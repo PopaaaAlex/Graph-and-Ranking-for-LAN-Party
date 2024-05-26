@@ -1,4 +1,4 @@
-#include "../graph.h"
+#include "../main.h"
 
 Coada* createQueue(){
     Coada *q;
@@ -8,14 +8,14 @@ Coada* createQueue(){
     return q;
 }
 
-void enQueue ( Coada *q, Echipa v){
-    Echipa * newNode =( Echipa *)malloc(sizeof(Echipa));
+void enQueue ( Coada *q, Echipa *v){
+    Echipa * newNode =(Echipa*)malloc(sizeof(Echipa));
     
-    newNode->nume_echipa = (char*)calloc(strlen(v.nume_echipa) + 1, sizeof(char));
-    strcpy(newNode->nume_echipa, v.nume_echipa);
+    newNode->nume_echipa = (char*)calloc(strlen(v->nume_echipa) + 1, sizeof(char));
+    strcpy(newNode->nume_echipa, v->nume_echipa);
     
-    newNode->punctaj_e = v.punctaj_e;
-    newNode->poz = v.poz;
+    newNode->punctaj_e = v->punctaj_e;
+    newNode->poz = v->poz;
     newNode->next = NULL ;
 
     if (q->spate == NULL ) q->spate = newNode ;
@@ -28,10 +28,14 @@ void enQueue ( Coada *q, Echipa v){
 
 Echipa *deQueue(Coada *q){
     Echipa  *aux ; Echipa d;
-    if ( isEmpty (q)) return INT_MIN;
+    if ( isEmpty (q)) return NULL;
     
     aux=q->fata ;
     q->fata = (q->fata) ->next;
 
     return aux;
+}
+
+int isEmpty(Coada *queue){
+	return (queue->fata) == NULL;
 }
