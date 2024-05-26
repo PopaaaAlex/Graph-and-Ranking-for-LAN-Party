@@ -1,14 +1,10 @@
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
+#include "main.h"
 
 
 struct Graph
 {
-    int poz;
-    char *nume_echipa;
-    float punctaj_e;
+    int **a;
 };
 
 typedef struct Graph Graph;
