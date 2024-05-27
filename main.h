@@ -15,23 +15,21 @@ struct echipa{
 };
 typedef struct echipa Echipa;
 
-struct Graph
-{
+struct Graph{
     Echipa *varf;
     int **a;
 };
 typedef struct Graph Graph;
 
 
-struct Coada
-{
+struct Coada{
     Echipa *fata, *spate;
 };
 typedef struct Coada Coada;
 
 void citire(FILE *, Echipa *);
-Echipa *deQueue(Coada *q);
-void enQueue (Coada *q, Echipa *v);
+Echipa *deQueue(Coada *);
+void enQueue (Coada *, Echipa *);
 Coada* createQueue();
 int isEmpty(Coada *);
 void citire_coada(Echipa *, Coada **);
@@ -40,6 +38,6 @@ void meciuri(Coada *, Graph **,Coada *, Coada *, int *);
 void final(Coada *, Graph**, Coada*, Coada*);
 void enQueue_q(Coada *, Coada *);
 void afisare_graph(char *, Graph *);
-void punctaj_final(Coada* castigatori, Coada* pierzatori);
+void punctaj_final(Coada* , Coada* );
 float calcul_punctaj(Echipa *);
 void afisare_scor(Coada* , Coada *, char* );

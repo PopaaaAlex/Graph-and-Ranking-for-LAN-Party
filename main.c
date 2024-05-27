@@ -1,7 +1,6 @@
 #include "main.h"
 
-int main(int argc, char* argv[])
-{
+int main(int argc, char* argv[]){
     FILE *fisier = fopen(argv[1], "rt");
     Echipa *echipa = (Echipa*)calloc(32, sizeof(Echipa));
     Coada *coada = createQueue(), *pierzatori = createQueue(), *castigatori = createQueue();

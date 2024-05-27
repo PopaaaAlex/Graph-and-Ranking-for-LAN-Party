@@ -1,7 +1,6 @@
 #include "../main.h"
 
-void citire(FILE *fisier, Echipa *echipa)
-{
+void citire(FILE *fisier, Echipa *echipa){
     char nume[40];
     for (int i = 0; i < 32; i++)
     {
@@ -12,42 +11,35 @@ void citire(FILE *fisier, Echipa *echipa)
         strcpy(echipa[i].nume_echipa, nume);
     }
 }
-void citire_coada(Echipa *echipe, Coada **coada)
-{
+
+void citire_coada(Echipa *echipe, Coada **coada){
 
     for (int i = 0; i < 32; i++)
         enQueue((*coada), &echipe[i]);
 }
 
-void meciuri(Coada *queue, Graph **g, Coada *castigatori, Coada *pierzatori, int *nr_echipe)
-{
+void meciuri(Coada *queue, Graph **g, Coada *castigatori, Coada *pierzatori, int *nr_echipe){
     Echipa *echipa_1 = NULL, *echipa_2 = NULL;
-    for (int i = 0; i < *nr_echipe; i += 2)
-    {
+    for (int i = 0; i < *nr_echipe; i += 2){
 
         echipa_1 = deQueue(queue);
         echipa_2 = deQueue(queue);
-        // printf("%f %f\n", echipa_1->punctaj_e, echipa_2->punctaj_e);
-        if (echipa_1->punctaj_e > echipa_2->punctaj_e)
-        {
+        if (echipa_1->punctaj_e > echipa_2->punctaj_e){
             enQueue(castigatori, echipa_1);
             enQueue(pierzatori, echipa_2);
             (*g)->a[echipa_2->poz][echipa_1->poz] = 1;
         }
-        else if (echipa_2->punctaj_e > echipa_1->punctaj_e)
-        {
+        else if (echipa_2->punctaj_e > echipa_1->punctaj_e){
             enQueue(castigatori, echipa_2);
             enQueue(pierzatori, echipa_1);
             (*g)->a[echipa_1->poz][echipa_2->poz] = 1;
         }
-        else if (echipa_1->punctaj_e == echipa_2->punctaj_e && (strcmp(echipa_1->nume_echipa, echipa_2->nume_echipa)) > 0)
-        {
+        else if (echipa_1->punctaj_e == echipa_2->punctaj_e && (strcmp(echipa_1->nume_echipa, echipa_2->nume_echipa)) > 0){
             enQueue(castigatori, echipa_1);
             enQueue(pierzatori, echipa_2);
             (*g)->a[echipa_2->poz][echipa_1->poz] = 1;
         }
-        else if (echipa_1->punctaj_e == echipa_2->punctaj_e && (strcmp(echipa_1->nume_echipa, echipa_2->nume_echipa)) < 0)
-        {
+        else if (echipa_1->punctaj_e == echipa_2->punctaj_e && (strcmp(echipa_1->nume_echipa, echipa_2->nume_echipa)) < 0){
             enQueue(castigatori, echipa_2);
             enQueue(pierzatori, echipa_1);
             (*g)->a[echipa_1->poz][echipa_2->poz] = 1;
@@ -62,7 +54,7 @@ void final(Coada *coada, Graph **g, Coada *castigatori, Coada *pierzatori){
         meciuri(coada, g, castigatori, pierzatori, &nr_echipe);
         Echipa *aux = pierzatori->fata;
     contor = 0;
-    while (aux != NULL && contor < 16) {
+    while (aux != NULL && contor < 16){
         aux->nr_victorii = 0;
         aux = aux->next;
         contor++;
