@@ -4,6 +4,3 @@ build:
 	
 run:
 	./clasament test.in test.out test.out
-
-clear:
-	rm -f clasament

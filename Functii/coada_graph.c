@@ -52,6 +52,8 @@ Graph* alocare(){
 }
 
 void enQueue_q(Coada *q, Coada *castigatori){
+    
+    printf("eroare");
     Echipa * newNode =(Echipa*)malloc(sizeof(Echipa));
     Echipa *aux = castigatori->fata;
     
