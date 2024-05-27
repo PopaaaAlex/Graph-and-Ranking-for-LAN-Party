@@ -2,18 +2,22 @@
 #include <stdlib.h>
 #include <string.h>
 #include <limits.h>
+#include <math.h>
 
 
 struct echipa{
     int poz;
     char *nume_echipa;
     double punctaj_e;
+    int nr_victorii;
+    float prestigiu;
     struct echipa *next;
 };
 typedef struct echipa Echipa;
 
 struct Graph
 {
+    Echipa *varf;
     int **a;
 };
 typedef struct Graph Graph;
@@ -33,6 +37,8 @@ int isEmpty(Coada *);
 void citire_coada(Echipa *, Coada **);
 Graph* alocare();
 void meciuri(Coada *, Graph **,Coada *, Coada *, int *);
-void final(Coada *, char *, Graph**);
+void final(Coada *, Graph**, Coada*, Coada*);
 void enQueue_q(Coada *, Coada *);
 void afisare_graph(char *, Graph *);
+void punctaj_final(Coada* castigatori, Coada* pierzatori);
+float calcul_punctaj(Echipa *);
