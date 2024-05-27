@@ -5,7 +5,7 @@
 #include <math.h>
 
 
-struct echipa{
+struct echipa {
     int poz;
     char *nume_echipa;
     double punctaj_e;
@@ -15,14 +15,14 @@ struct echipa{
 };
 typedef struct echipa Echipa;
 
-struct Graph{
+struct Graph {
     Echipa *varf;
     int **a;
 };
 typedef struct Graph Graph;
 
 
-struct Coada{
+struct Coada {
     Echipa *fata, *spate;
 };
 typedef struct Coada Coada;
