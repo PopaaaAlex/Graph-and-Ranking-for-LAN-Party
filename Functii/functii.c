@@ -113,3 +113,15 @@ void punctaj_final(Coada* castigatori, Coada* pierzatori){
     castigatori->fata->prestigiu = calcul_punctaj(castigatori->fata);
 }
 
+void afisare_scor(Coada* castigatori, Coada *pierzatori, char* argv){
+    FILE *fisier = fopen(argv, "wt");
+    Coada* aux = pierzatori;
+    
+    while(aux->fata != NULL){
+        fprintf(fisier, "%.4f %s", aux->fata->prestigiu, aux->fata->nume_echipa);
+        aux->fata = aux->fata->next;
+    }
+    
+    fprintf(fisier, "%.4f %s", castigatori->fata->prestigiu, castigatori->fata->nume_echipa);
+    fclose(fisier);
+}

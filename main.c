@@ -13,7 +13,7 @@ int main(int argc, char* argv[])
     final(coada, &graph, castigatori, pierzatori);
     afisare_graph(argv[2], graph);
     punctaj_final(castigatori, pierzatori);
-    
+    afisare_scor(castigatori, pierzatori, argv[3]);
 
     return 0;
 }

@@ -42,3 +42,4 @@ void enQueue_q(Coada *, Coada *);
 void afisare_graph(char *, Graph *);
 void punctaj_final(Coada* castigatori, Coada* pierzatori);
 float calcul_punctaj(Echipa *);
+void afisare_scor(Coada* , Coada *, char* );
