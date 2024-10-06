@@ -16,6 +16,6 @@ The prestige of each team is calculated based on the number of victories obtaine
 [1]: Sergey Brin and Lawrence Page. The anatomy of a large-scale hypertextual web search engine. Computer Networks and ISDN Systems, Proceedings of the Seventh International World Wide Web Conference, 30(1):107–117, 1998.
 https://snap.stanford.edu/class/cs224w-readings/Brin98Anatomy.pdf
 
-[2]: Pr = (q * pow((2 - q), r)) / (pow(2, l) + pow((2 - q), l) * (q - 1));
-q - represents the weight
-l - height of the tree
+[2]: Pr = (q * pow((2 - q), r)) / (pow(2, l) + pow((2 - q), l) * (q - 1));<br>
+q - represents the weight<br>
+l - height of the tree<br>
