@@ -1,25 +1,21 @@
-# NUME PROIECT: Graf si Clasament LanParty
+## PROJECT NAME: Graph and Ranking for LAN Party
 
-## Rulare Program
+##Program Execution
 ./checker.sh
 
-## Descriere
-Datele sunt citite din fișierul de intrare pentru a simula un turneu de LanParty. La finalul simulării, se construiește un graf orientat, iar prestigiul este calculat în funcție de numărul de victorii obținute de fiecare echipă.
-Clasamentul se aseamana cu algoritmul PageRank[1]:
+## Description
+The data is read from the input file to simulate a LAN Party tournament. At the end of the simulation, a directed graph is constructed, and the prestige is calculated based on the number of victories obtained by each team. The ranking resembles the PageRank algorithm[1]:
 
-## Cerințe:
+## Requirements:
+ ### Task_1:
+Teams will be represented by the vertices of the graph, and their position in the file will also determine their position in the graph, being used to create the adjacency matrix. The path between two teams is from the team that lost to the team that won.
 
-### Task_1:
-  Echipele vor fi reprezentate de vârfurile grafului, iar poziția din fișier determină și poziția în graf, fiind folosită pentru a crea matricea de adiacență.
-  Drumul dintre cele două echipe este de la echipa care a pierdut către echipa care a câștigat.
-### Task_2:
-  Prestigiul fiecărei echipe este calculat în funcție de numărul de victorii obținute și de ponderea turneului, în acest caz ponderea fiind q = 0.15, conform formulei[2]
+ ### Task_2:
+The prestige of each team is calculated based on the number of victories obtained and the weight of the tournament, in this case, the weight being q = 0.15, according to the formula[2]:
 
+[1]: Sergey Brin and Lawrence Page. The anatomy of a large-scale hypertextual web search engine. Computer Networks and ISDN Systems, Proceedings of the Seventh International World Wide Web Conference, 30(1):107–117, 1998.
+https://snap.stanford.edu/class/cs224w-readings/Brin98Anatomy.pdf
 
-
-  [1]: Sergey Brin and Lawrence Page. The anatomy of a large-scale hypertextual web search engine. Computer Networks and ISDN Systems, Proceedings of the Seventh International World Wide Web Conference, 30(1):107–117, 1998.
-  https://snap.stanford.edu/class/cs224w-readings/Brin98Anatomy.pdf
-  
-  [2]: Pr = (q * pow((2 - q), r)) / (pow(2, l) + pow((2 - q), l) * (q - 1));
-  q - reprezinta ponderea
-  l - inaltimea arborelui
+[2]: Pr = (q * pow((2 - q), r)) / (pow(2, l) + pow((2 - q), l) * (q - 1));
+q - represents the weight
+l - height of the tree
